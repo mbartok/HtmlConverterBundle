@@ -12,17 +12,44 @@ class Html2TextExtensionTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function servicesShouldBeLoaded()
+    public function defaultServicesShouldBeLoaded()
     {
         $container = new ContainerBuilder();
         $loader = new Html2TextExtension();
         $loader->load(array(array()), $container);
 
-        $this->assertTrue($container->hasDefinition('bicpi.html2text'), 'The html2test service is loaded');
-//        $this->assertTrue($container->hasDefinition('knp_menu.renderer.twig'), 'The twig renderer is loaded');
-//        $this->assertEquals('knp_menu.html.twig', $container->getParameter('knp_menu.renderer.twig.template'));
-//        $this->assertFalse($container->hasDefinition('knp_menu.templating.helper'), 'The PHP helper is not loaded');
-//        $this->assertTrue($container->getDefinition('knp_menu.menu_provider.builder_alias')->hasTag('knp_menu.provider'), 'The BuilderAliasProvider is enabled');
-//        $this->assertTrue($container->getDefinition('knp_menu.menu_provider.container_aware')->hasTag('knp_menu.provider'), 'The ContainerAwareProvider is enabled');
+        $this->assertTrue($container->hasDefinition('bicpi.html2text'), 'The html2text service is loaded');
+        $this->assertTrue($container->hasDefinition('bicpi.html2text.converter.simple'), 'The simple converter is loaded');
+        $this->assertTrue($container->hasDefinition('bicpi.html2text.converter.html2text'), 'The html2text converter is loaded');
+        $this->assertTrue($container->hasDefinition('bicpi.html2text.converter.lynx'), 'The lynx converter is loaded');
+    }
+
+    /**
+     * @test
+     */
+    public function enabledConvertersShouldBeLoadedOnly()
+    {
+        $config = array(array(
+            'converters' => array(
+                'simple' => false,
+                'html2text' => false,
+            )
+        ));
+        $container = new ContainerBuilder();
+        $loader = new Html2TextExtension();
+        $loader->load($config, $container);
+
+        $this->assertFalse(
+            $container->getDefinition('bicpi.html2text.converter.simple')->hasTag('bicpi.html2text.converter'),
+            'The html2text converter is tagged/enabled'
+        );
+        $this->assertFalse(
+            $container->getDefinition('bicpi.html2text.converter.html2text')->hasTag('bicpi.html2text.converter'),
+            'The html2text converter is tagged/enabled'
+        );
+        $this->assertTrue(
+            $container->getDefinition('bicpi.html2text.converter.lynx')->hasTag('bicpi.html2text.converter'),
+            'The html2text converter is tagged/enabled'
+        );
     }
 }
