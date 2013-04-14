@@ -1,6 +1,6 @@
 <?php
 
-namespace Onemedia\Bundle\Html2Text;
+namespace bicpi\Bundle\Html2TextBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

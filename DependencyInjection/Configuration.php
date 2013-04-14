@@ -13,7 +13,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('onemedia_html2text')
+        $rootNode = $treeBuilder->root('bicpi_html2text')
             ->addDefaultsIfNotSet()
             ->children()
                 ->arrayNode('converters')
