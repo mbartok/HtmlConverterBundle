@@ -6,15 +6,15 @@
 
     <parameters>
         <parameter key="bicpi.html2text.class">bicpi\Component\Html2Text\Html2Text</parameter>
-        <parameter key="bicpi.html2text.converter.simple.class">bicpi\Component\Html2Text\Converter\Simple</parameter>
-        <parameter key="bicpi.html2text.converter.html2text.class">bicpi\Component\Html2Text\Converter\Html2Text</parameter>
-        <parameter key="bicpi.html2text.converter.lynx.class">bicpi\Component\Html2Text\Converter\Lynx</parameter>
+        <parameter key="bicpi.html2text.converter.lynx.class">bicpi\Component\Html2Text\Converter\LynxConverter</parameter>
+        <parameter key="bicpi.html2text.converter.html2text.class">bicpi\Component\Html2Text\Converter\Html2TextConverter</parameter>
+        <parameter key="bicpi.html2text.converter.simple.class">bicpi\Component\Html2Text\Converter\SimpleConverter</parameter>
     </parameters>
 
     <services>
         <service id="bicpi.html2text" class="%bicpi.html2text.class%"/>
-        <service id="bicpi.html2text.converter.simple" class="%bicpi.html2text.converter.simple.class%"/>
-        <service id="bicpi.html2text.converter.html2text" class="%bicpi.html2text.converter.html2text.class%"/>
         <service id="bicpi.html2text.converter.lynx" class="%bicpi.html2text.converter.lynx.class%"/>
+        <service id="bicpi.html2text.converter.html2text" class="%bicpi.html2text.converter.html2text.class%"/>
+        <service id="bicpi.html2text.converter.simple" class="%bicpi.html2text.converter.simple.class%"/>
     </services>
 </container>
