@@ -11,12 +11,6 @@
             "homepage": "http://philipp-rieber.net"
         }
     ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/bicpi/bicpi-components.git"
-        }
-    ],
     "require": {
         "bicpi/bicpi-components": "1.*@dev",
         "symfony/framework-bundle": ">=2.1,<2.3-dev"
