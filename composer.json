@@ -1,7 +1,7 @@
 {
     "name":        "bicpi/html2text-bundle",
     "type":        "symfony-bundle",
-    "description": "This bundle provides integration of bicpi's Html2Text component",
+    "description": "This bundle provides Symfony2 integration of bicpi's Html2Text component",
     "keywords":    ["html2text", "bicpi"],
     "homepage":    "http://github.com/bicpi/Html2TextBundle",
     "license":     "MIT",
@@ -12,8 +12,14 @@
         }
     ],
     "require": {
-        "bicpi/bicpi-components": "1.*@dev",
-        "symfony/framework-bundle": ">=2.1,<2.3-dev"
+        "php": ">=5.3.2",
+        "bicpi/bicpi-components": "1.*@dev"
+    },
+    "require-dev": {
+        "symfony/dependency-injection": "~2.1",
+        "symfony/http-kernel": "~2.1",
+        "symfony/config": "~2.1",
+        "symfony/yaml": "~2.1"
     },
     "autoload": {
         "psr-0": {

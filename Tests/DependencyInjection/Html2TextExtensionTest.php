@@ -3,9 +3,6 @@ namespace Knp\Bundle\MenuBundle\Tests\DependencyInjection;
 
 use bicpi\Bundle\Html2TextBundle\DependencyInjection\Html2TextExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Component\DependencyInjection\Parameter;
-use Symfony\Component\DependencyInjection\Reference;
 
 class Html2TextExtensionTest extends \PHPUnit_Framework_TestCase
 {
