@@ -1,0 +1,35 @@
+{
+    "name":        "bicpi/html2text-bundle",
+    "type":        "symfony-bundle",
+    "description": "This bundle provides integration of bicpi's Html2Text component",
+    "keywords":    ["html2text", "bicpi"],
+    "homepage":    "http://github.com/bicpi/Html2TextBundle",
+    "license":     "MIT",
+    "authors": [
+        {
+            "name": "Philipp Rieber",
+            "homepage": "http://philipp-rieber.net"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/bicpi/bicpi-components.git"
+        }
+    ],
+    "require": {
+        "bicpi/bicpi-components": "1.*@dev",
+        "symfony/framework-bundle": ">=2.1,<2.3-dev"
+    },
+    "autoload": {
+        "psr-0": {
+            "bicpi\\Bundle\\Html2TextBundle": ""
+        }
+    },
+    "target-dir": "bicpi/Bundle/Html2TextBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}
