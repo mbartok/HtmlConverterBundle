@@ -7,7 +7,7 @@
     <parameters>
         <parameter key="bicpi.html_converter.guesser.class">bicpi\Component\HtmlConverter\Converter\ChainConverter</parameter>
         <parameter key="bicpi.html_converter.lynx.class">bicpi\Component\HtmlConverter\Converter\LynxConverter</parameter>
-        <parameter key="bicpi.html_converter.html2text.class">bicpi\Component\HtmlConverter\Converter\HtmlConverterConverter</parameter>
+        <parameter key="bicpi.html_converter.html2text.class">bicpi\Component\HtmlConverter\Converter\Html2TextConverter</parameter>
         <parameter key="bicpi.html_converter.simple.class">bicpi\Component\HtmlConverter\Converter\SimpleConverter</parameter>
     </parameters>
 
