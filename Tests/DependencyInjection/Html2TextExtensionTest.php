@@ -15,7 +15,7 @@ class Html2TextExtensionTest extends \PHPUnit_Framework_TestCase
         $loader = new Html2TextExtension();
         $loader->load(array(array()), $container);
 
-        $this->assertTrue($container->hasDefinition('bicpi.html2text'), 'The html2text service is loaded');
+        $this->assertTrue($container->hasDefinition('bicpi.html2text.converter.chain'), 'The chain converter is loaded');
         $this->assertTrue($container->hasDefinition('bicpi.html2text.converter.simple'), 'The simple converter is loaded');
         $this->assertTrue($container->hasDefinition('bicpi.html2text.converter.html2text'), 'The html2text converter is loaded');
         $this->assertTrue($container->hasDefinition('bicpi.html2text.converter.lynx'), 'The lynx converter is loaded');
@@ -27,7 +27,7 @@ class Html2TextExtensionTest extends \PHPUnit_Framework_TestCase
     public function enabledConvertersShouldBeLoadedOnly()
     {
         $config = array(array(
-            'converters' => array(
+            'converter_chain' => array(
                 'simple' => false,
                 'html2text' => false,
             )

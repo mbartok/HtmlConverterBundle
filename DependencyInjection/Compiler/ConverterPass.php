@@ -15,8 +15,23 @@ class ConverterPass implements CompilerPassInterface
         }
 
         $definition = $container->getDefinition('bicpi.html2text');
+
+        $converters = array();
         foreach ($container->findTaggedServiceIds('bicpi.html2text.converter') as $id => $args) {
-            $definition->addMethodCall('addConverter', array(new Reference($id)));
+            $priority = isset($attributes[0]['priority']) ? $attributes[0]['priority'] : 0;
+            $converters[$priority][] = new Reference($id);
+        }
+
+        if (empty($converters)) {
+            return;
+        }
+
+        // sort by priority and flatten
+        krsort($warmers);
+        $converters = call_user_func_array('array_merge', $converters);
+
+        foreach ($converters as $converter) {
+            $definition->addMethodCall('addConverter', array($converter));
         }
     }
 }

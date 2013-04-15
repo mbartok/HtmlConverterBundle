@@ -19,11 +19,12 @@ class Html2TextExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        foreach ($config['converters'] as $converter => $enabled) {
+        $priority = 0;
+        foreach ($config['converter_chain'] as $converter => $enabled) {
             if ($enabled) {
                 $container
                     ->getDefinition('bicpi.html2text.converter.'.$converter)
-                    ->addTag('bicpi.html2text.converter');
+                    ->addTag('bicpi.html2text.converter', array('priority' => $priority++));
             }
         }
     }

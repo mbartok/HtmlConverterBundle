@@ -16,7 +16,7 @@ class Configuration implements ConfigurationInterface
         $rootNode = $treeBuilder->root('bicpi_html2text')
             ->addDefaultsIfNotSet()
             ->children()
-                ->arrayNode('converters')
+                ->arrayNode('converter_chain')
                     ->addDefaultsIfNotSet()
                     ->children()
                         ->scalarNode('lynx')->defaultValue(true)->end()
