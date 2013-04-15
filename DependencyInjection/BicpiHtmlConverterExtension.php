@@ -22,13 +22,11 @@ class BicpiHtmlConverterExtension extends Extension
 
         $container->setAlias('bicpi.html_converter', 'bicpi.html_converter.guesser');
 
-        #$priority = 0;
         foreach ($config['guesser'] as $converter => $enabled) {
             if ($enabled) {
                 $container
-                    ->getDefinition('bicpi.html_converter')
-                    ->addMethodCall('addConverter', array(new Reference('bicpi.html_converter.'.$converter), array($converter)));
-                    #->addTag('bicpi.html_converter.converter', array('priority' => $priority++));
+                    ->getDefinition('bicpi.html_converter.guesser')
+                    ->addMethodCall('addConverter', array(new Reference('bicpi.html_converter.'.$converter), $converter));
             }
         }
     }
