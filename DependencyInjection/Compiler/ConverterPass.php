@@ -1,6 +1,6 @@
 <?php
 
-namespace bicpi\Bundle\Html2TextBundle\DependencyInjection\Compiler;
+namespace bicpi\Bundle\HtmlConverterBundle\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
@@ -10,14 +10,14 @@ class ConverterPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container)
     {
-        if (!$container->hasDefinition('bicpi.html2text')) {
+        if (!$container->hasDefinition('bicpi.html_converter')) {
             return;
         }
 
-        $definition = $container->getDefinition('bicpi.html2text');
+        $definition = $container->getDefinition('bicpi.html_converter');
 
         $converters = array();
-        foreach ($container->findTaggedServiceIds('bicpi.html2text.converter') as $id => $args) {
+        foreach ($container->findTaggedServiceIds('bicpi.html_converter.converter') as $id => $args) {
             $priority = isset($attributes[0]['priority']) ? $attributes[0]['priority'] : 0;
             $converters[$priority][] = new Reference($id);
         }

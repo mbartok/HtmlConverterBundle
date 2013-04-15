@@ -1,5 +1,5 @@
-Html2TextBundle
+HtmlConverterBundle
 ===============
 
-The `Html2TextBundle` integrates the [Html2Text](https://github.com/bicpi/bicpi-components)
-component with Symfony2. This means easy Html2Text conversion.
+The `HtmlConverterBundle` integrates the [HtmlConverter](https://github.com/bicpi/bicpi-components)
+component with Symfony2. This means easy HTML to text conversions.

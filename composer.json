@@ -1,9 +1,9 @@
 {
-    "name":        "bicpi/html2text-bundle",
+    "name":        "bicpi/html-converter-bundle",
     "type":        "symfony-bundle",
-    "description": "This bundle provides Symfony2 integration of bicpi's Html2Text component",
-    "keywords":    ["html2text", "bicpi"],
-    "homepage":    "http://github.com/bicpi/Html2TextBundle",
+    "description": "This bundle provides Symfony2 integration of bicpi's HtmlConverter component",
+    "keywords":    ["html", "converter", "bicpi"],
+    "homepage":    "http://github.com/bicpi/HtmlConverterBundle",
     "license":     "MIT",
     "authors": [
         {
@@ -23,10 +23,10 @@
     },
     "autoload": {
         "psr-0": {
-            "bicpi\\Bundle\\Html2TextBundle": ""
+            "bicpi\\Bundle\\HtmlConverterBundle": ""
         }
     },
-    "target-dir": "bicpi/Bundle/Html2TextBundle",
+    "target-dir": "bicpi/Bundle/HtmlConverterBundle",
     "extra": {
         "branch-alias": {
             "dev-master": "1.0.x-dev"

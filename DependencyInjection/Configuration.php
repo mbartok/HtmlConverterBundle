@@ -1,6 +1,6 @@
 <?php
 
-namespace bicpi\Bundle\Html2TextBundle\DependencyInjection;
+namespace bicpi\Bundle\HtmlConverterBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -13,15 +13,16 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('bicpi_html2text')
+
+        $treeBuilder->root('bicpi_html_converter')
             ->addDefaultsIfNotSet()
             ->children()
-                ->arrayNode('converter_chain')
+                ->arrayNode('guesser')
                     ->addDefaultsIfNotSet()
                     ->children()
-                        ->scalarNode('lynx')->defaultValue(true)->end()
-                        ->scalarNode('html2text')->defaultValue(true)->end()
-                        ->scalarNode('simple')->defaultValue(true)->end()
+                        ->scalarNode('lynx')->defaultValue(false)->end()
+                        ->scalarNode('html2text')->defaultValue(false)->end()
+                        ->scalarNode('simple')->defaultValue(false)->end()
                     ->end()
                 ->end()
             ->end()
