@@ -1,8 +1,8 @@
 {
     "name":        "bicpi/html-converter-bundle",
     "type":        "symfony-bundle",
-    "description": "This bundle provides Symfony2 integration of bicpi's HtmlConverter component",
-    "keywords":    ["html", "converter", "bicpi"],
+    "description": "This bundle provides Symfony2 integration of bicpi's HtmlConverter library",
+    "keywords":    ["html", "text", "converter", "symfony2", "bundle", "bicpi"],
     "homepage":    "http://github.com/bicpi/HtmlConverterBundle",
     "license":     "MIT",
     "authors": [
@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=5.3.2",
-        "bicpi/bicpi-components": "1.*@dev"
+        "bicpi/html-converter": "1.*@dev"
     },
     "require-dev": {
         "symfony/dependency-injection": "~2.1",

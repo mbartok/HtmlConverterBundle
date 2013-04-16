@@ -15,16 +15,10 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
 
         $treeBuilder->root('bicpi_html_converter')
-            ->addDefaultsIfNotSet()
             ->children()
-                ->arrayNode('guesser')
-                    ->addDefaultsIfNotSet()
-                    ->children()
-                        ->scalarNode('lynx')->defaultValue(false)->end()
-                        ->scalarNode('html2text')->defaultValue(false)->end()
-                        ->scalarNode('simple')->defaultValue(false)->end()
-                    ->end()
-                ->end()
+                ->arrayNode('guesser_chain')
+                    ->prototype('scalar')->end()
+                    ->defaultValue(array('lynx', 'html2text', 'simple'))
             ->end()
         ;
 

@@ -1,3 +1,3 @@
 # Intro to HtmlConverterBundle
 
-This component offers conversion from raw HTML to plain text formats
+This bundle offers Symfony2 integration of the bicpi/html-converter library
