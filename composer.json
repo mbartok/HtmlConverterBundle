@@ -1,7 +1,7 @@
 {
     "name":        "bicpi/html-converter-bundle",
     "type":        "symfony-bundle",
-    "description": "This bundle provides Symfony2 integration of bicpi's HtmlConverter library",
+    "description": "This bundle provides Symfony2 integration of bicpi's html-converter library",
     "keywords":    ["html", "text", "converter", "symfony2", "bundle", "bicpi"],
     "homepage":    "http://github.com/bicpi/HtmlConverterBundle",
     "license":     "MIT",
