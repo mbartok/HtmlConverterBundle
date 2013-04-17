@@ -33,12 +33,15 @@ class HtmlConverterExtensionTest extends \PHPUnit_Framework_TestCase
         $methodCalls = $container->getDefinition('bicpi.html_converter.guesser')->getMethodCalls();
         $this->assertEquals(3, count($methodCalls));
         $this->assertEquals('lynx', $methodCalls[0][1][1]);
+        $this->assertEquals('html2text', $methodCalls[1][1][1]);
+        $this->assertEquals('simple', $methodCalls[2][1][1]);
     }
 
     /**
      * @test
+     * @expectedException Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
      */
-    public function customConfigShouldBeLoaded()
+    public function emptyGuesserChainIsNotAllowed()
     {
         $container = new ContainerBuilder();
 
@@ -46,9 +49,25 @@ class HtmlConverterExtensionTest extends \PHPUnit_Framework_TestCase
         $loader->load(
             array(
                 array(
-                    'guesser_chain' => array(
-                        'simple', 'lynx'
-                    )
+                    'guesser_chain' => array()
+                )
+            ),
+            $container
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function customGuesserIsLoaded()
+    {
+        $container = new ContainerBuilder();
+
+        $loader = new BicpiHtmlConverterExtension();
+        $loader->load(
+            array(
+                array(
+                    'guesser_chain' => array('simple', 'lynx')
                 )
             ),
             $container

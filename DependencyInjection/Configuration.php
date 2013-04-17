@@ -16,9 +16,15 @@ class Configuration implements ConfigurationInterface
 
         $treeBuilder->root('bicpi_html_converter')
             ->children()
-                ->arrayNode('guesser_chain')
-                    ->prototype('scalar')->end()
-                    ->defaultValue(array('lynx', 'html2text', 'simple'))
+            ->arrayNode('guesser_chain')
+                ->requiresAtLeastOneElement()
+                ->defaultValue(array('lynx', 'html2text', 'simple'))
+                ->prototype('scalar')
+                    ->validate()
+                    ->ifNotInArray(array('lynx', 'html2text', 'simple'))
+                        ->thenInvalid('Invalid converter "%s"')
+                    ->end()
+                ->end()
             ->end()
         ;
 
