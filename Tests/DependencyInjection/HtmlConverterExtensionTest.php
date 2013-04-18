@@ -34,7 +34,7 @@ class HtmlConverterExtensionTest extends \PHPUnit_Framework_TestCase
         );
         $this->assertTrue($container->hasDefinition('bicpi.html_converter.lynx'), 'The lynx converter is loaded');
 
-        $this->assertEquals('bicpi.html_converter.guesser', (string)$container->getAlias('bicpi.html_converter'));
+        $this->assertEquals('bicpi.html_converter.guesser', (string) $container->getAlias('bicpi.html_converter'));
         $this->assertEquals(
             'bicpi\HtmlConverter\Converter\ChainConverter',
             $container->getParameter('bicpi.html_converter.guesser.class')
