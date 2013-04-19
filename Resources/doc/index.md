@@ -2,6 +2,8 @@
 
 This bundle offers Symfony2 integration of the bicpi/HtmlConverter library.
 
+Please also refer to the [bicpi/HtmlConverter documention](https://github.com/bicpi/HtmlConverter).
+
 ## Installation
 
 ### Add on composer.json (see http://getcomposer.org/)
@@ -32,11 +34,13 @@ public function registerBundles()
 The bundle's default configuration is listed below. These defaults will be
 used if you do not change the configuration.
 
-    bicpi_html_converter:
-        guesser_chain:
-            - lynx
-            - html2text
-            - simple
+```yml
+bicpi_html_converter:
+    guesser_chain:
+        - lynx
+        - html2text
+        - simple
+```
 
 ## Using converters
 
@@ -55,9 +59,9 @@ $simpleConverter = $this->container->get('bicpi.html_converter.simple');
 $plainBySimple = $converter->convert($html);
 ```
 
-You can use the "Guesser" converter which chains all available converters in a reasonable order. The guesser
-converter is an implementation of the `ChainConverter`. The available converters are registered automatically
-by configuration:
+You can use the special **Guesser** converter which chains all available converters in a reasonable order. The
+**Guesser** converter is an implementation of the `ChainConverter`. The available converters are registered
+automatically by the bundle configuration:
 
 1. `lynx`
 2. `html2text`
@@ -69,7 +73,7 @@ $html = '... <h1>... you HTML content ...</h1> ...';
 $converter = $this->container->get('bicpi.html_converter.guesser');
 $plain = $converter->convert($html);
 
-Or you the service alias for convinience:
+For convenience you may use the service alias `bicpi.html_converter`:
 
 ```php
 $html = '... <h1>... you HTML content ...</h1> ...';
@@ -79,12 +83,11 @@ $plain = $converter->convert($html);
 
 You can customize the guesser chain in your `config.yml`:
 
-    bicpi_html_converter:
-        guesser_chain:
-            - lynx
-            - simple
+```yml
+bicpi_html_converter:
+    guesser_chain:
+        - lynx
+        - simple
+```
 
 The above example only register the `LynxConverter` and the `SimpleConverter`.
-
-
-
