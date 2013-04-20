@@ -13,7 +13,7 @@ See http://getcomposer.org for details.
 ```json
 "require" :  {
     // ...
-    "bicpi/html-converter-bundle": "1.0.*@dev",
+    "bicpi/html-converter-bundle": "1.0.*",
 }
 ```
 
