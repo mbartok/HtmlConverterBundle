@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=5.3.2",
-        "bicpi/html-converter": "1.*@dev"
+        "bicpi/html-converter": "1.0.*"
     },
     "require-dev": {
         "symfony/dependency-injection": "~2.1",
