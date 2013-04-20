@@ -98,3 +98,11 @@ bicpi_html_converter:
 ```
 
 The above example only register the `LynxConverter` and the `SimpleConverter`.
+
+## Running unit tests
+
+PHPUnit 3.5 or newer is required. To setup and run tests follow these steps:
+
+1. Go to the root directory of this library
+2. Run: `composer install --dev`
+3. Run: `phpunit`
